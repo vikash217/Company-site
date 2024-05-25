@@ -168,6 +168,37 @@
 
 
 
+# import streamlit as st
+
+# # Custom CSS styles
+# def local_css(file_name):
+#     with open(file_name) as f:
+#         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# # Load local CSS file
+# local_css("styles.css")
+
+# def main():
+#     st.title("Welcome to Saanvi Infotech")
+#     st.write("Your one-stop solution for all IT needs.")
+
+#     st.header("About Us")
+#     st.write("Saanvi Infotech is a leading IT company dedicated to providing innovative solutions to businesses worldwide. With a team of experienced professionals, we offer a wide range of services, including web development, mobile app development, software solutions, and IT consulting.")
+
+#     st.header("Our Services")
+#     services = ["Web Development", "Mobile App Development", "Software Solutions", "IT Consulting"]
+#     service = st.selectbox("Select a service", services)
+#     if service:
+#         st.success(f"You have selected: {service}")
+
+#     st.header("Contact Us")
+#     st.write("Reach out to us for any inquiries or project discussions.")
+#     st.write("Email: info@saanviinfotech.com\nPhone: +1 (XXX) XXX-XXXX")
+#     st.write("Address: 1234 Main Street, City, Country")
+
+# if __name__ == "__main__":
+#     main()
+
 import streamlit as st
 
 # Custom CSS styles
@@ -185,11 +216,23 @@ def main():
     st.header("About Us")
     st.write("Saanvi Infotech is a leading IT company dedicated to providing innovative solutions to businesses worldwide. With a team of experienced professionals, we offer a wide range of services, including web development, mobile app development, software solutions, and IT consulting.")
 
-    st.header("Our Services")
-    services = ["Web Development", "Mobile App Development", "Software Solutions", "IT Consulting"]
-    service = st.selectbox("Select a service", services)
-    if service:
-        st.success(f"You have selected: {service}")
+    st.header("Menu")
+    menu_expander = st.beta_expander("☰ Menu")
+    with menu_expander:
+        services = ["Web Development", "Mobile App Development", "Software Solutions", "IT Consulting"]
+        service = st.selectbox("Select a service", services)
+        if service == "Web Development":
+            st.write("## Web Development Service")
+            st.write("We specialize in designing and developing responsive and user-friendly websites tailored to your business needs.")
+        elif service == "Mobile App Development":
+            st.write("## Mobile App Development Service")
+            st.write("Our team creates custom mobile applications for iOS and Android platforms to help you reach your target audience.")
+        elif service == "Software Solutions":
+            st.write("## Software Solutions Service")
+            st.write("We offer bespoke software solutions to automate processes, streamline operations, and improve efficiency.")
+        elif service == "IT Consulting":
+            st.write("## IT Consulting Service")
+            st.write("Our IT consulting services provide strategic guidance and support to help businesses leverage technology effectively.")
 
     st.header("Contact Us")
     st.write("Reach out to us for any inquiries or project discussions.")
